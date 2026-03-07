@@ -1,0 +1,56 @@
+<Window x:Class="ClassDutyHelper.Views.ImportColumnDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="选择列" Height="400" Width="440"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Border CornerRadius="20" 
+            Background="{StaticResource PrimaryGradientBrush}" 
+            BorderBrush="{StaticResource BorderBrush}" 
+            BorderThickness="1">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="40" ShadowDepth="0" Opacity="0.6" Color="#000000" Direction="270"/>
+        </Border.Effect>
+        <Grid Margin="28">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" 
+                       x:Name="TitleText" 
+                       Text="选择列" 
+                       FontSize="20" 
+                       FontWeight="SemiBold" 
+                       Margin="0,0,0,24" 
+                       Foreground="{StaticResource TextPrimaryBrush}"/>
+
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <Border Background="{StaticResource TertiaryBackgroundBrush}" 
+                        BorderBrush="{StaticResource BorderBrush}" 
+                        BorderThickness="1" 
+                        CornerRadius="12" 
+                        Padding="12">
+                    <StackPanel x:Name="ColumnsPanel"/>
+                </Border>
+            </ScrollViewer>
+
+            <StackPanel Grid.Row="2" 
+                        Orientation="Horizontal" 
+                        HorizontalAlignment="Right" 
+                        Margin="0,20,0,0">
+                <Button Content="确定" 
+                        Click="OnOkClick" 
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Margin="0,0,12,0"/>
+                <Button Content="取消" 
+                        Click="OnCancelClick" 
+                        Style="{StaticResource SecondaryButtonStyle}"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

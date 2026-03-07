@@ -1,0 +1,65 @@
+<Window x:Class="ClassDutyHelper.Views.TopBarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="班级值日助手 - 悬浮窗"
+        Height="50"
+        Width="380"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        ShowInTaskbar="False"
+        x:Name="ThisWindow">
+    <Border x:Name="MainBorder"
+            Background="{StaticResource PrimaryGradientBrush}"
+            BorderBrush="{StaticResource BorderBrush}"
+            BorderThickness="1"
+            CornerRadius="8"
+            MouseLeftButtonDown="OnMouseLeftButtonDown"
+            MouseEnter="OnMouseEnter"
+            MouseLeave="OnMouseLeave">
+        <Border.Effect>
+            <DropShadowEffect x:Name="ShadowEffect" BlurRadius="20" ShadowDepth="0" Opacity="0.4" Color="#000000" Direction="270"/>
+        </Border.Effect>
+        <ScrollViewer x:Name="MainScrollViewer" VerticalScrollBarVisibility="Hidden">
+            <Grid x:Name="InnerGrid" Margin="10,0,10,0">
+                <Grid x:Name="HorizontalPanel" Visibility="Visible">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid x:Name="TimeModule" Grid.Column="0" Margin="0,0,16,0" MouseLeftButtonDown="OnTimeModuleClick" Cursor="Hand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="TimeText" Grid.Column="0" Text="00:00:00" FontSize="18" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                        <StackPanel Grid.Column="1" Margin="8,0,0,0" VerticalAlignment="Center">
+                            <TextBlock x:Name="DateText" Text="01月01日" FontSize="12" Foreground="#CCCCCC"/>
+                            <TextBlock x:Name="WeekText" Text="周一" FontSize="12" Foreground="#CCCCCC"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <ScrollViewer x:Name="DutyScrollViewer" Grid.Column="1" VerticalScrollBarVisibility="Disabled" MouseWheel="OnDutyScroll" HorizontalScrollBarVisibility="Hidden">
+                        <Grid x:Name="DutyModule" MouseLeftButtonDown="OnDutyModuleClick" Cursor="Hand">
+                            <TextBlock x:Name="DutyInfoText" Text="加载中..." FontSize="14" Foreground="White" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+
+                <Grid x:Name="VerticalPanel" Visibility="Collapsed">
+                    <StackPanel Orientation="Vertical">
+                        <ItemsControl x:Name="TimeItemsV"/>
+                        <ItemsControl x:Name="DateItemsV" Margin="0,8,0,8"/>
+                        <ItemsControl x:Name="DutyItemsV" Margin="0,8,0,8" MouseLeftButtonDown="OnDutyModuleClick" Cursor="Hand"/>
+                    </StackPanel>
+
+                    <Grid x:Name="TimeModuleV" Visibility="Visible">
+                        <TextBlock x:Name="TimeTextV" Text="00:00:00" />
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Border>
+</Window>

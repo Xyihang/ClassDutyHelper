@@ -1,0 +1,140 @@
+<Window x:Class="ClassDutyHelper.Views.AutoScheduleDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="自动排班" Height="680" Width="560"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Border CornerRadius="20" 
+            Background="{StaticResource PrimaryGradientBrush}" 
+            BorderBrush="{StaticResource BorderBrush}" 
+            BorderThickness="1">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="40" ShadowDepth="0" Opacity="0.6" Color="#000000" Direction="270"/>
+        </Border.Effect>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid Margin="28">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" 
+                           Text="自动排班" 
+                           FontSize="20" 
+                           FontWeight="SemiBold" 
+                           Margin="0,0,0,24" 
+                           Foreground="{StaticResource TextPrimaryBrush}"/>
+
+                <StackPanel Grid.Row="1">
+                    <TextBlock Text="排班模式" 
+                               Foreground="{StaticResource TextSecondaryBrush}" 
+                               FontSize="13"
+                               Margin="0,0,0,8"/>
+                    <ComboBox x:Name="ModeComboBox" 
+                              Style="{StaticResource ModernComboBoxStyle}"
+                              SelectedIndex="0"
+                              Margin="0,0,0,20">
+                        <ComboBoxItem Content="按人轮询"/>
+                        <ComboBoxItem Content="按组轮询"/>
+                    </ComboBox>
+
+                    <TextBlock Text="开始日期" 
+                               Foreground="{StaticResource TextSecondaryBrush}" 
+                               FontSize="13"
+                               Margin="0,0,0,8"/>
+                    <DatePicker x:Name="StartDatePicker" 
+                                Padding="12,8"
+                                FontSize="14"
+                                Margin="0,0,0,20"/>
+
+                    <TextBlock Text="结束日期" 
+                               Foreground="{StaticResource TextSecondaryBrush}" 
+                               FontSize="13"
+                               Margin="0,0,0,8"/>
+                    <DatePicker x:Name="EndDatePicker" 
+                                Padding="12,8"
+                                FontSize="14"
+                                Margin="0,0,0,20"/>
+
+                    <TextBlock Text="周期天数" 
+                               Foreground="{StaticResource TextSecondaryBrush}" 
+                               FontSize="13"
+                               Margin="0,0,0,8"/>
+                    <TextBox x:Name="CycleDaysTextBox" 
+                             Style="{StaticResource ModernTextBoxStyle}"
+                             Text="7"
+                             Margin="0,0,0,20"/>
+
+                    <CheckBox x:Name="WeekdaysOnlyCheckBox" 
+                              Content="仅排周一到周五（智能跳过周末）" 
+                              IsChecked="True" 
+                              Style="{StaticResource ModernCheckBoxStyle}"
+                              Margin="0,0,0,12"/>
+
+                    <CheckBox x:Name="SkipHolidaysCheckBox" 
+                              Content="跳过法定节假日" 
+                              IsChecked="False" 
+                              Style="{StaticResource ModernCheckBoxStyle}"
+                              Margin="0,0,0,20"/>
+
+                    <TextBlock Text="排除日期（用逗号分隔，如：2024-01-01,2024-05-01）" 
+                               Foreground="{StaticResource TextSecondaryBrush}" 
+                               FontSize="13"
+                               Margin="0,0,0,8"/>
+                    <TextBox x:Name="ExcludeDatesTextBox" 
+                             Style="{StaticResource ModernTextBoxStyle}"
+                             Margin="0,0,0,20"
+                             Height="60"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             VerticalScrollBarVisibility="Auto"/>
+
+                    <Button Content="🔍 预览排班结果" 
+                            Click="OnPreviewClick" 
+                            Style="{StaticResource SecondaryButtonStyle}"
+                            Margin="0,0,0,12"/>
+
+                    <Border x:Name="PreviewBorder"
+                            Background="{StaticResource TertiaryBackgroundBrush}"
+                            BorderBrush="{StaticResource BorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="12"
+                            Padding="12"
+                            MaxHeight="180"
+                            Visibility="Collapsed"
+                            Margin="0,0,0,20">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <TextBlock x:Name="PreviewText" 
+                                       FontSize="12" 
+                                       Foreground="{StaticResource TextPrimaryBrush}"
+                                       TextWrapping="Wrap"/>
+                        </ScrollViewer>
+                    </Border>
+
+                    <TextBlock Text="说明：自动排班将在选择的日期范围内生成排班，已存在的排班不会被覆盖。" 
+                               FontSize="12" 
+                               Foreground="{StaticResource TextMutedBrush}" 
+                               TextWrapping="Wrap" 
+                               Margin="0,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" 
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Right" 
+                            Margin="0,20,0,0">
+                    <Button Content="确定" 
+                            Click="OnOkClick" 
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Margin="0,0,12,0"/>
+                    <Button Content="取消" 
+                            Click="OnCancelClick" 
+                            Style="{StaticResource SecondaryButtonStyle}"/>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Border>
+</Window>

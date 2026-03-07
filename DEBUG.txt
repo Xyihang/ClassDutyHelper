@@ -1,0 +1,32 @@
+System.NotSupportedException
+  HResult=0x80131515
+  Message=SQLite does not support expressions of type 'TimeSpan' in ORDER BY clauses. Convert the values to a supported type, or use LINQ to Objects to order the results on the client side.
+  Source=Microsoft.EntityFrameworkCore.Sqlite
+  StackTrace:
+   在 Microsoft.EntityFrameworkCore.Sqlite.Query.Internal.SqliteQueryableMethodTranslatingExpressionVisitor.TranslateThenBy(ShapedQueryExpression source, LambdaExpression keySelector, Boolean ascending)
+   在 Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   在 Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   在 Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.Translate(Expression expression)
+   在 Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutorExpression[TResult](Expression query)
+   在 Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+   在 Microsoft.EntityFrameworkCore.Storage.Database.CompileQuery[TResult](Expression query, Boolean async)
+   在 Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.CompileQueryCore[TResult](IDatabase database, Expression query, IModel model, Boolean async)
+   在 Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass11_0`1.<ExecuteCore>b__0()
+   在 Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+   在 Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteCore[TResult](Expression query, Boolean async, CancellationToken cancellationToken)
+   在 Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   在 Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   在 Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1.GetEnumerator()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 ClassDutyHelper.Services.DataService.GetAllTimeSlotProjects() 在 C:\Users\xiyih\Documents\trae_projects\WPF\WpfApp\Services\DataService.cs 中: 第 402 行
+   在 ClassDutyHelper.Views.MainWindow.LoadTimeSlotData() 在 C:\Users\xiyih\Documents\trae_projects\WPF\WpfApp\Views\MainWindow.xaml.cs 中: 第 721 行
+   在 ClassDutyHelper.Views.MainWindow.LoadSettings() 在 C:\Users\xiyih\Documents\trae_projects\WPF\WpfApp\Views\MainWindow.xaml.cs 中: 第 77 行
+   在 ClassDutyHelper.Views.MainWindow..ctor() 在 C:\Users\xiyih\Documents\trae_projects\WPF\WpfApp\Views\MainWindow.xaml.cs 中: 第 48 行
+   在 ClassDutyHelper.App.OnStartup(StartupEventArgs e) 在 C:\Users\xiyih\Documents\trae_projects\WPF\WpfApp\App.xaml.cs 中: 第 27 行
+   在 System.Windows.Application.<.ctor>b__1_0(Object unused)
+   在 System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   在 System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+   在 System.Windows.Threading.DispatcherOperation.InvokeImpl()
+   在 MS.Internal.CulturePreservingExecutionContext.CallbackWrapper(Object obj)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
