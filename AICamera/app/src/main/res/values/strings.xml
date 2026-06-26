@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AI相机</string>
+    <string name="camera_permission_title">需要相机权限</string>
+    <string name="camera_permission_desc">请授予相机权限以使用拍摄功能</string>
+    <string name="storage_permission_title">需要存储权限</string>
+    <string name="storage_permission_desc">请授予存储权限以保存照片</string>
+    <string name="grant_permission">授予权限</string>
+    <string name="ai_composition">AI构图</string>
+    <string name="filter">滤镜</string>
+    <string name="gallery">相册</string>
+    <string name="photo_mode">拍照</string>
+    <string name="video_mode">录像</string>
+    <string name="zoom">焦段</string>
+    <string name="grid">网格</string>
+    <string name="level">水平仪</string>
+    <string name="align_frame">对齐取景框</string>
+    <string name="perfect_shot">构图完美</string>
+    <string name="scene_portrait">人像</string>
+    <string name="scene_landscape">风景</string>
+    <string name="scene_food">美食</string>
+    <string name="scene_architecture">建筑</string>
+    <string name="scene_street">街景</string>
+    <string name="scene_night">夜景</string>
+    <string name="scene_pet">宠物</string>
+    <string name="auto_detected">自动识别</string>
+    <string name="edit">编辑</string>
+    <string name="share">分享</string>
+    <string name="delete">删除</string>
+    <string name="brightness">亮度</string>
+    <string name="contrast">对比度</string>
+    <string name="saturation">饱和度</string>
+    <string name="crop">裁剪</string>
+</resources>
